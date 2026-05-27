@@ -1,4 +1,4 @@
-name: CI/CD and Docker
+name: CI/CD and Docker demo
 
 on:
   push:
@@ -25,7 +25,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-
+      #----------------------
       # 4. Build Docker image và push lên Docker Hub, lưu ý trường tags: có dạng dockerhub-username/image-name:tag
       # Ví dụ nếu tên tài khoản dockerhub của bạn là A => đặt là A/it4409-sample:staging chẳng hạn
       - name: Build and push Docker image
@@ -34,7 +34,7 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: vietban2005/it4409-sample:latest
+          tags: cuongptc/it4409-cicd_test:staging
 
   deploy:
     name: Deploy to Server
